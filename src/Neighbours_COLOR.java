@@ -149,15 +149,12 @@ public class Neighbours_COLOR extends Application {
         int good = -1;
         int bad = 0;
 
-        for (int i = -1; i != 2; i++) {
-            for (int j = -1; j != 2; j++) {
-                if (x + i >= 0 && x + i < worldSize && y+j >= 0 && y+j < worldSize) {
-
-                    if (world[x + i][y + j] == a) {
-                        good++;
-                    } else if (world[x + i][y + j] != Color.WHITE) {
-                        bad++;
-                    }
+        for (int i = x - 1 > 0 ? x - 1 : 0; i <= x + 1 && i < worldSize; i++) {
+            for (int j = y - 1 > 0 ? y - 1 : 0; j <= y + 1 && j < worldSize; j++) {
+                if (world[i][j] == a) {
+                    good++;
+                } else if (world[i][j] != Color.WHITE) {
+                    bad++;
                 }
             }
         }
